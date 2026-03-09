@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.sportconnect.controller.LoginController">
+    <center>
+        <VBox spacing="12" alignment="CENTER" BorderPane.alignment="CENTER">
+            <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+            <Label text="SportConnect - Login" styleClass="screen-title" />
+            <TextField promptText="Email" maxWidth="320" />
+            <PasswordField promptText="Contraseña" maxWidth="320" />
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Entrar" />
+                <Button text="Registro" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

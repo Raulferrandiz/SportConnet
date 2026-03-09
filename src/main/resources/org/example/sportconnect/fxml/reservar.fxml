@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.sportconnect.controller.ReservarController">
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="top-bar">
+            <padding><Insets top="12" right="20" bottom="12" left="20"/></padding>
+            <Label text="SportConnect" styleClass="brand" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Pistas" />
+            <Button text="Reservas" />
+            <Button text="Deportes" />
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="16">
+            <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+            <Label text="Reservar" styleClass="screen-title" />
+            <Label text="Vista base creada para la estructura del proyecto." />
+            <Pane VBox.vgrow="ALWAYS" />
+        </VBox>
+    </center>
+</BorderPane>
