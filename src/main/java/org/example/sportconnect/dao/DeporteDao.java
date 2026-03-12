@@ -116,22 +116,6 @@ public class DeporteDao {
     }
 
     /**
-     * Devuelve todos los deportes activos
-     * @return una lista de deportes activos; si ocurre un error, devuelve una lista vacía
-     */
-    public List<Deporte> listarActivos() {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery(
-                    "FROM Deporte d WHERE d.activa = true",
-                    Deporte.class
-            ).list();
-        } catch (Exception e) {
-            System.err.println("Error al listar los deportes activos: " + e.getMessage());
-            return List.of();
-        }
-    }
-
-    /**
      * Busca un deporte por su nombre
      * @param nombre el nombre del deporte
      * @return el deporte encontrado, o null si no existe o ocurre un error

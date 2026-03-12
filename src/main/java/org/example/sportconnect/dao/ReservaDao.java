@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 public class ReservaDao {
@@ -161,29 +162,29 @@ public class ReservaDao {
     }
 
     /**
-     * Comprueba si ya existe una reserva para una pista, una fecha y una hora concretas
-     * La usamos para antes de crear una reserva, para no crear una reserva que ya exista
+     * Comprueba si ya existe una reserva para una pista, una fecha y una hora o a lo largo de las horas
      * @param pistaId el id de la pista
      * @param fecha la fecha de la reserva
-     * @param hora la hora de la reserva
      * @return true si ya existe una reserva con esos datos, false si no existe o ocurre un error
      */
-    public boolean existeReserva(Long pistaId, LocalDate fecha, String hora) {
+    public boolean existeReserva(Long pistaId, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Long total = session.createQuery(
                             "SELECT COUNT(r) FROM Reserva r " +
                                     "WHERE r.pista.id = :pistaId " +
                                     "AND r.fecha = :fecha " +
-                                    "AND r.hora = :hora",
+                                    "AND r.activa = true " +
+                                    "AND r.hora_inicio < :horaFin " +
+                                    "AND r.hora_fin > :horaInicio",
                             Long.class
                     )
                     .setParameter("pistaId", pistaId)
                     .setParameter("fecha", fecha)
-                    .setParameter("hora", hora)
+                    .setParameter("horaInicio", horaInicio)
+                    .setParameter("horaFin", horaFin)
                     .uniqueResult();
 
             return total != null && total > 0;
-
         } catch (Exception e) {
             System.err.println("Error al comprobar disponibilidad de reserva: " + e.getMessage());
             return false;

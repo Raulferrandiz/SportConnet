@@ -17,20 +17,16 @@ public class Deporte {
     private String descripcion;
 
     @Column
-    private boolean activa;
-
-    @Column
     private String logo;
 
     public Deporte() {
 
     }
 
-    public Deporte(Long id, String nombre, String descripcion, boolean activa, String logo) {
+    public Deporte(Long id, String nombre, String descripcion, String logo) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.activa = activa;
         this.logo = logo;
     }
 
@@ -58,14 +54,6 @@ public class Deporte {
         this.descripcion = descripcion;
     }
 
-    public boolean isActiva() {
-        return activa;
-    }
-
-    public void setActiva(boolean activa) {
-        this.activa = activa;
-    }
-
     public String getLogo() {
         return logo;
     }
@@ -80,7 +68,6 @@ public class Deporte {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", activa=" + activa +
                 ", logo='" + logo + '\'' +
                 '}';
     }
