@@ -31,7 +31,7 @@ public class UsuarioDao {
                 tx.rollback();
             }
 
-            System.err.println("Error al guardar usuario: " + e.getMessage());
+            System.err.println("Error al guardar el usuario: " + e.getMessage());
             return false;
         }
     }
@@ -58,7 +58,7 @@ public class UsuarioDao {
                 tx.rollback();
             }
 
-            System.err.println("Error al actualizar usuario: " + e.getMessage());
+            System.err.println("Error al editar el usuario: " + e.getMessage());
             return false;
         }
     }
