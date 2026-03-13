@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.sportconnect.controller.HomeController">
-    <top>
-        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="top-bar">
-            <padding><Insets top="12" right="20" bottom="12" left="20"/></padding>
-            <Label text="SportConnect" styleClass="brand" />
-            <Region HBox.hgrow="ALWAYS" />
-            <Button text="Pistas" />
-            <Button text="Reservas" />
-            <Button text="Deportes" />
-        </HBox>
-    </top>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.sportconnect.controller.HomeController">
+
     <center>
-        <VBox spacing="16">
-            <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
-            <Label text="Home" styleClass="screen-title" />
-            <Label text="Vista base creada para la estructura del proyecto." />
-            <Pane VBox.vgrow="ALWAYS" />
+        <VBox alignment="CENTER" spacing="12" styleClass="page-wrapper">
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <Label text="Bienvenido USER" styleClass="screen-title"/>
         </VBox>
     </center>
 </BorderPane>

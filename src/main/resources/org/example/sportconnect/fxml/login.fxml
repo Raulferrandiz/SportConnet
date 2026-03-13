@@ -1,22 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.sportconnect.controller.LoginController">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.sportconnect.controller.LoginController"
+            styleClass="auth-root">
+
     <center>
-        <VBox alignment="CENTER" prefHeight="408.0" prefWidth="466.0" spacing="12" BorderPane.alignment="CENTER">
-            <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
-         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../images/logo2.png" />
-            </image></ImageView>
-            <TextField maxWidth="320" promptText="Email" />
-            <PasswordField maxWidth="320" promptText="Contraseña" />
-             <Button text="Entrar" />
-             <Button text="Registro" />
+        <VBox alignment="CENTER"
+              spacing="12"
+              styleClass="auth-card"
+              BorderPane.alignment="CENTER">
+
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40" />
+            </padding>
+
+            <ImageView fitHeight="150.0"
+                       fitWidth="200.0"
+                       pickOnBounds="true"
+                       preserveRatio="true">
+                <image>
+                    <Image url="@../images/logo2.png" />
+                </image>
+            </ImageView>
+
+            <TextField fx:id="emailField"
+                       maxWidth="320"
+                       promptText="Correo electrónico"
+                       styleClass="auth-input" />
+
+            <PasswordField fx:id="passwordField"
+                           maxWidth="320"
+                           promptText="Contraseña"
+                           styleClass="auth-input" />
+
+            <Label fx:id="mensajeLabel"
+                   textFill="#963707"
+                   wrapText="true"
+                   maxWidth="320" />
+
+            <Button text="Iniciar Sesión"
+                    onAction="#handleLogin"
+                    styleClass="auth-button" />
+
+            <Label text="o" styleClass="auth-separator" />
+
+            <Button text="Crear una Cuenta"
+                    onAction="#goToRegister"
+                    styleClass="auth-link" />
         </VBox>
     </center>
 </BorderPane>

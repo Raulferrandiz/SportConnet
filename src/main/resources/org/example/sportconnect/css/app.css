@@ -1,35 +1,156 @@
+/* =========================================================
+   APP.CSS - ESTILO BASE DE SPORTCONNECT
+   Este CSS está adaptado al login actual de tu proyecto.
+   ========================================================= */
+
+/* =========================================================
+   COLORES DEL FIGMA
+   Verde principal: #5F9607
+   Verde oscuro:    #3C6F03
+   Fondo claro:     #FDFEFB
+   Gris medio:      #808080
+   Naranja oscuro:  #963707
+   ========================================================= */
+
+/* Estilo general de toda la aplicación */
 .root {
     -fx-font-family: "Segoe UI", Arial, sans-serif;
-    -fx-background-color: #f5f5f5;
+    -fx-background-color: #FDFEFB;
 }
 
-.top-bar {
+/* =========================================================
+   LOGIN / REGISTER
+   ========================================================= */
+
+/* Fondo general de la pantalla de login */
+.auth-root {
+    /* Fondo verde parecido al del figma */
+    -fx-background-color: linear-gradient(to bottom, #6aa80c 0%, #5F9607 100%);
+}
+
+/* Tarjeta central blanca del login */
+.auth-card {
+    -fx-background-color: #FDFEFB;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+
+    /* Espaciado interno del panel */
+    -fx-padding: 30 30 25 30;
+
+    /* Sombra suave para separarla del fondo */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 14, 0.12, 0, 3);
+}
+
+/* Campos de texto del login */
+.auth-input {
+    -fx-background-color: #FDFEFB;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+
+    /* Borde gris fino como en el figma */
+    -fx-border-color: #808080;
+    -fx-border-width: 1;
+
+    -fx-text-fill: #2f2f2f;
+    -fx-prompt-text-fill: #9a9a9a;
+
+    -fx-font-size: 13px;
+
+    /* Espacio interno del campo */
+    -fx-padding: 8 10 8 10;
+}
+
+/* Estado cuando el usuario hace clic en el input */
+.auth-input:focused {
+    -fx-background-color: white;
+    -fx-border-color: #5F9607;
+    -fx-border-width: 1.5;
+}
+
+/* Botón principal: Iniciar sesión */
+.auth-button {
     -fx-background-color: #5F9607;
-}
-
-.brand {
     -fx-text-fill: white;
-    -fx-font-size: 22px;
-    -fx-font-weight: bold;
-}
 
-.screen-title {
-    -fx-text-fill: #5F9607;
-    -fx-font-size: 28px;
-    -fx-font-weight: bold;
-}
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
 
-.button {
-    -fx-background-color: #5F9607;
-    -fx-text-fill: white;
-    -fx-background-radius: 8;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+
+    -fx-padding: 9 26 9 26;
     -fx-cursor: hand;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 8, 0.10, 0, 2);
 }
 
-.button:hover {
-    -fx-background-color: #4d7b06;
+/* Hover del botón principal */
+.auth-button:hover {
+    -fx-background-color: #3C6F03;
 }
 
-.text-field, .password-field {
-    -fx-background-radius: 8;
+/* Cuando se pulsa el botón */
+.auth-button:pressed {
+    -fx-background-color: #315b02;
+    -fx-translate-y: 1;
+}
+
+/* Cuando el botón tiene el foco del teclado */
+.auth-button:focused {
+    -fx-border-color: #3C6F03;
+    -fx-border-width: 1;
+}
+
+/* Texto separador: "o" */
+.auth-separator {
+    -fx-text-fill: #2f2f2f;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+}
+
+/* Botón tipo enlace: "Crear una Cuenta" */
+.auth-link {
+    /* Quitamos el aspecto de botón normal */
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-effect: null;
+
+    -fx-text-fill: #4f8df7;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+
+    -fx-padding: 2 4 2 4;
+}
+
+/* Hover del enlace */
+.auth-link:hover {
+    -fx-underline: true;
+    -fx-text-fill: #2f6fe0;
+}
+
+/* Estado al pulsar el enlace */
+.auth-link:pressed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* =========================================================
+   LABEL DE MENSAJES / ERRORES
+   ========================================================= */
+
+/* Si luego quieres poner styleClass a labels de error */
+.error-label {
+    -fx-text-fill: #963707;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+
+/* Si luego quieres poner styleClass a labels correctos */
+.success-label {
+    -fx-text-fill: #3C6F03;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
 }

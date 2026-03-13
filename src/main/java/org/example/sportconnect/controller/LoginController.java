@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.example.sportconnect.model.Usuario;
 import org.example.sportconnect.service.AuthService;
 import org.example.sportconnect.util.SceneManager;
 
@@ -20,17 +21,28 @@ public class LoginController {
 
     private final AuthService authService = new AuthService();
 
+    //Valida el login y dependiendo del rol redirige a una pantalla o a otra
     @FXML
     private void handleLogin() {
         try {
             String email = emailField.getText();
             String password = passwordField.getText();
 
-            authService.login(email, password);
+            Usuario usuario = authService.login(email, password);
 
             mensajeLabel.setText("");
 
-            SceneManager.show("/org/example/sportconnect/fxml/home.fxml", "SportConnect - Inicio");
+            if ("ADMIN".equalsIgnoreCase(usuario.getRol())) {
+                SceneManager.show(
+                        "/org/example/sportconnect/fxml/admin_deportes.fxml",
+                        "SportConnect - Admin"
+                );
+            } else {
+                SceneManager.show(
+                        "/org/example/sportconnect/fxml/home.fxml",
+                        "SportConnect - Home"
+                );
+            }
 
         } catch (IllegalArgumentException e) {
             mensajeLabel.setText(e.getMessage());
@@ -40,7 +52,7 @@ public class LoginController {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     private void goToRegister() {
         SceneManager.show("/org/example/sportconnect/fxml/register.fxml", "SportConnect - Registro");
