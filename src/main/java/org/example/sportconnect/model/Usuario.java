@@ -25,6 +25,9 @@ public class Usuario {
     @Column(nullable = false)
     private String rol;
 
+    @Column
+    private boolean activo = true;
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reserva> reservas = new ArrayList<>();
 
@@ -36,6 +39,7 @@ public class Usuario {
         this.email = email;
         this.password = password;
         this.rol = rol;
+        this.activo = true;
     }
 
     public Long getId() {
@@ -76,6 +80,14 @@ public class Usuario {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     public List<Reserva> getReservas() {

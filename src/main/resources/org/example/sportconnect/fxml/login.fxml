@@ -2,18 +2,21 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.sportconnect.controller.LoginController">
     <center>
-        <VBox alignment="CENTER" spacing="12" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" prefHeight="408.0" prefWidth="466.0" spacing="12" BorderPane.alignment="CENTER">
             <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../images/logo2.png" />
+            </image></ImageView>
             <TextField maxWidth="320" promptText="Email" />
             <PasswordField maxWidth="320" promptText="Contraseña" />
-            <HBox alignment="CENTER" spacing="10">
-                <Button text="Entrar" />
-                <Button text="Registro" />
-            </HBox>
+             <Button text="Entrar" />
+             <Button text="Registro" />
         </VBox>
     </center>
 </BorderPane>

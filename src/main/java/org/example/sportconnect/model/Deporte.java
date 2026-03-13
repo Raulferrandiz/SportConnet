@@ -19,6 +19,9 @@ public class Deporte {
     @Column
     private String logo;
 
+    @Column
+    private boolean activo = true;
+
     public Deporte() {
 
     }
@@ -28,6 +31,7 @@ public class Deporte {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.logo = logo;
+        this.activo = true;
     }
 
     public Long getId() {
@@ -62,6 +66,14 @@ public class Deporte {
         this.logo = logo;
     }
 
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
     @Override
     public String toString() {
         return "Deporte{" +
@@ -69,6 +81,7 @@ public class Deporte {
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", logo='" + logo + '\'' +
+                ", activo=" + activo +
                 '}';
     }
 }
