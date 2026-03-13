@@ -87,15 +87,6 @@ public class ReservaService {
         return reservaDao.guardar(reserva);
     }
 
-    //Lista de las reservas de un usuario
-    public List<Reserva> listarReservasUsuario(Long usuarioId) {
-        if (usuarioId == null || usuarioId <= 0) {
-            throw new IllegalArgumentException("El id del usuario no es válido.");
-        }
-
-        return reservaDao.listarPorUsuario(usuarioId);
-    }
-
     //Lista de las proximas reservas de un usuario
     public List<Reserva> listarProximasReservas(Long usuarioId) {
         if (usuarioId == null || usuarioId <= 0) {
@@ -156,14 +147,5 @@ public class ReservaService {
 
         reserva.setActiva(false);
         return reservaDao.actualizar(reserva);
-    }
-
-    //Buscar reserva por id
-    public Reserva buscarPorId(Long reservaId) {
-        if (reservaId == null || reservaId <= 0) {
-            throw new IllegalArgumentException("El id de la reserva no es válido.");
-        }
-
-        return reservaDao.buscarPorId(reservaId);
     }
 }
